@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_users"
+            android:contentDescription="Avatar" />
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:text="Nombre"
+            android:textStyle="bold"
+            android:layout_height="4dp"
+            android:layout_width="4dp"/>
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
+
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:text="Correo electrónico"
+            android:textStyle="bold"
+            android:layout_height="4dp"
+            android:layout_width="4dp"/>
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:enabled="false"/>
+
+
+        <TextView
+            android:layout_marginTop="8dp"
+            android:text="Rol"
+            android:textStyle="bold"
+            android:layout_height="4dp"
+            android:layout_width="4dp"/>
+        <EditText
+            android:id="@+id/etRole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"/>
+
+
+        <TextView
+            android:id="@+id/labelPharmacy"
+            android:layout_marginTop="8dp"
+            android:text="Farmacia"
+            android:textStyle="bold"
+            android:visibility="gone"
+            android:layout_height="4dp"
+            android:layout_width="4dp"/>
+        <EditText
+            android:id="@+id/etPharmacy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:visibility="gone"/>
+
+
+        <LinearLayout
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnEdit"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Editar"/>
+
+            <Button
+                android:id="@+id/btnSave"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Guardar"
+                android:enabled="false"/>
+        </LinearLayout>
+
+
+        <Button
+            android:id="@+id/btnLogout"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cerrar sesión"/>
+
+    </LinearLayout>
+</ScrollView>
+
+

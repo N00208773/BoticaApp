@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_employee"
+    app:startDestination="@id/employeeHomeFragment">
+
+    <fragment
+        android:id="@+id/employeeHomeFragment"
+        android:name="com.example.boticaapp.ui.empleado.EmployeeHomeFragment"
+        android:label="Añadir" />
+
+    <fragment
+        android:id="@+id/employeeProductsFragment"
+        android:name="com.example.boticaapp.ui.empleado.EmployeeProductsFragment"
+        android:label="Productos" />
+
+    <fragment
+        android:id="@+id/employeeOrdersFragment"
+        android:name="com.example.boticaapp.ui.empleado.EmployeeOrdersFragment"
+        android:label="Pedidos Empleado">
+        <argument
+            android:name="role"
+            app:argType="string"
+            android:defaultValue="empleado" />
+        <argument
+            android:name="pharmacy_id"
+            app:argType="integer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.boticaapp.ui.cliente.ProfileFragment"
+        android:label="Perfil" />
+
+</navigation>

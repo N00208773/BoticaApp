@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/employeeHomeFragment"
+        android:icon="@drawable/ic_add"
+        android:title="Añadir" />
+
+    <item
+        android:id="@+id/employeeProductsFragment"
+        android:icon="@drawable/ic_inventory"
+        android:title="Productos" />
+
+    <item
+        android:id="@+id/employeeOrdersFragment"
+        android:icon="@drawable/ic_orders"
+        android:title="Pedidos" />
+
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_profile"
+        android:title="Perfil" />
+
+</menu>

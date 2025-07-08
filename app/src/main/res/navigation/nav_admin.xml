@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_admin"
+    app:startDestination="@id/adminUsersFragment">
+
+    <fragment
+        android:id="@+id/adminUsersFragment"
+        android:name="com.example.boticaapp.ui.admin.AdminUsersFragment"
+        android:label="Usuarios" />
+
+    <fragment
+        android:id="@+id/adminProductsFragment"
+        android:name="com.example.boticaapp.ui.admin.AdminProductsFragment"
+        android:label="Productos" />
+
+    <fragment
+        android:id="@+id/adminTopPharmacyFragment"
+        android:name="com.example.boticaapp.ui.admin.AdminTopPharmacyFragment"
+        android:label="Top Boticas" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.boticaapp.ui.cliente.ProfileFragment"
+        android:label="Perfil" />
+
+</navigation>

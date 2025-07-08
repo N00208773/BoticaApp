@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvTopTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Boticas con más pedidos:"
+            android:textAppearance="?attr/textAppearanceHeadline6"/>
+
+        <TextView
+            android:id="@+id/tvPharmacyName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="–"
+            android:layout_marginTop="8dp"/>
+
+        <TextView
+            android:id="@+id/tvOrderCount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pedidos: 0"/>
+
+    </LinearLayout>
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="200dp"
+        android:layout_gravity="top"
+        app:layout_constraintTop_toBottomOf="@id/tvOrderCount"
+        tools:ignore="MissingClass" />
+</FrameLayout>
+

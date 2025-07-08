@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_cliente"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.boticaapp.ui.cliente.HomeFragment"
+        android:label="Home" />
+
+    <fragment
+        android:id="@+id/cartFragment"
+        android:name="com.example.boticaapp.ui.cliente.CartFragment"
+        android:label="Carrito" />
+
+    <fragment
+        android:id="@+id/ordersFragment"
+        android:name="com.example.boticaapp.ui.cliente.OrdersFragment"
+        android:label="Pedidos">
+        <argument
+            android:name="role"
+            app:argType="string"
+            android:defaultValue="cliente" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.boticaapp.ui.cliente.ProfileFragment"
+        android:label="Perfil" />
+</navigation>
