@@ -10,6 +10,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import cz.msebera.android.httpclient.entity.StringEntity;
+import cz.msebera.android.httpclient.entity.ContentType;
 import cz.msebera.android.httpclient.Header;
 import java.io.UnsupportedEncodingException;
 
@@ -26,6 +27,15 @@ public class ApiClient {
     public  static final String MEDICINES_URL  = Constants.API_BASE_URL + "medicines.php";
     private static final String ORDERS_URL     = Constants.API_BASE_URL + "orders.php";
 
+    private static StringEntity jsonEntity(JSONObject body) {
+        try {
+            return new StringEntity(body.toString(), ContentType.APPLICATION_JSON);
+        } catch (UnsupportedEncodingException e) {
+            Log.e("ApiClient", "Encoding error", e);
+            return null;
+        }
+    }
+
     // ---------- AUTH ----------
     public static void login(Context ctx, String email, String pass, JsonHttpResponseHandler h) {
         JSONObject body = new JSONObject();
@@ -36,10 +46,12 @@ public class ApiClient {
             e.printStackTrace();
         }
 
-        StringEntity entity = new StringEntity(body.toString(), "UTF-8");
+        StringEntity entity = jsonEntity(body);
         String url = AUTH_URL + "?action=login";
         Log.d("ApiClient", "POST JSON " + url + " → " + body);
-        client.post(ctx, url, entity, "application/json", h);
+        if (entity != null) {
+            client.post(ctx, url, entity, "application/json", h);
+        }
     }
 
     public static void register(Context ctx,
@@ -58,10 +70,12 @@ public class ApiClient {
             e.printStackTrace();
         }
 
-        StringEntity entity = new StringEntity(body.toString(), "UTF-8");
+        StringEntity entity = jsonEntity(body);
         String url = AUTH_URL + "?action=register";
         Log.d("ApiClient", "POST JSON " + url + " → " + body);
-        client.post(ctx, url, entity, "application/json", h);
+        if (entity != null) {
+            client.post(ctx, url, entity, "application/json", h);
+        }
     }
 
     // ---------- USERS (ADMIN) ----------
@@ -84,14 +98,16 @@ public class ApiClient {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        StringEntity entity = new StringEntity(body.toString(), "UTF-8");
-        client.post(
-                ctx,
-                Constants.API_BASE_URL + "users.php?action=update",
-                entity,
-                "application/json",
-                h
-        );
+        StringEntity entity = jsonEntity(body);
+        if (entity != null) {
+            client.post(
+                    ctx,
+                    Constants.API_BASE_URL + "users.php?action=update",
+                    entity,
+                    "application/json",
+                    h
+            );
+        }
     }
 
     // ---------- PHARMACIES ----------
@@ -116,8 +132,10 @@ public class ApiClient {
             body.put("name", name);
             body.put("address", address);
             body.put("phone", phone);
-            StringEntity e = new StringEntity(body.toString(), "UTF-8");
-            client.post(ctx, PHARMACIES_URL, e, "application/json", h);
+            StringEntity e = jsonEntity(body);
+            if (e != null) {
+                client.post(ctx, PHARMACIES_URL, e, "application/json", h);
+            }
         } catch (JSONException ex) {
             ex.printStackTrace();
         }
@@ -175,10 +193,12 @@ public class ApiClient {
             e.printStackTrace();
         }
 
-        StringEntity entity = new StringEntity(body.toString(), "UTF-8");
+        StringEntity entity = jsonEntity(body);
         String url = MEDICINES_URL + "?action=create";
         Log.d("ApiClient", "POST JSON " + url + " → " + body);
-        client.post(ctx, url, entity, "application/json", h);
+        if (entity != null) {
+            client.post(ctx, url, entity, "application/json", h);
+        }
     }
     public static void updateMedicine(Context ctx,
                                       int id,
@@ -194,8 +214,10 @@ public class ApiClient {
             body.put("description", desc);
             body.put("price", price);
             body.put("stock", stock);
-            StringEntity entity = new StringEntity(body.toString(), "UTF-8");
-            client.post(ctx, MEDICINES_URL + "?action=update", entity, "application/json", h);
+            StringEntity entity = jsonEntity(body);
+            if (entity != null) {
+                client.post(ctx, MEDICINES_URL + "?action=update", entity, "application/json", h);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -231,10 +253,12 @@ public class ApiClient {
             e.printStackTrace();
         }
 
-        StringEntity entity = new StringEntity(body.toString(), "UTF-8");
+        StringEntity entity = jsonEntity(body);
         String url = ORDERS_URL + "?action=create";
         Log.d("ApiClient", "POST JSON " + url + " → " + body);
-        client.post(ctx, url, entity, "application/json", h);
+        if (entity != null) {
+            client.post(ctx, url, entity, "application/json", h);
+        }
     }
     public static void updateOrderStatus(Context ctx,
                                          int orderId,
@@ -248,8 +272,10 @@ public class ApiClient {
             e.printStackTrace();
         }
 
-        StringEntity entity = new StringEntity(body.toString(), "UTF-8");
-        client.post(ctx, ORDERS_URL + "?action=update_status", entity, "application/json", h);
+        StringEntity entity = jsonEntity(body);
+        if (entity != null) {
+            client.post(ctx, ORDERS_URL + "?action=update_status", entity, "application/json", h);
+        }
     }
 
     // ---------- ADMIN EXTRA ----------

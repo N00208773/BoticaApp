@@ -20,7 +20,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
-import java.io.UnsupportedEncodingException;
+import cz.msebera.android.httpclient.entity.ContentType;
 
 public class EmployeeHomeFragment extends Fragment {
     private EditText etName, etDesc, etPrice, etStock;
@@ -88,8 +88,7 @@ public class EmployeeHomeFragment extends Fragment {
         }
 
         // 2) Empaqueta como StringEntity
-        StringEntity entity;
-        entity = new StringEntity(body.toString(), "UTF-8");
+        StringEntity entity = new StringEntity(body.toString(), ContentType.APPLICATION_JSON);
 
         // 3) URL con action=create
         String url = ApiClient.MEDICINES_URL + "?action=create";
